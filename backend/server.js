@@ -4,7 +4,8 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const { testConnection } = require('./config/db');
+const bcrypt = require('bcryptjs');
+const { testConnection, pool } = require('./config/db');
 const { attachUser } = require('./middleware/auth');
 const { errorHandler } = require('./utils/errors');
 
@@ -19,6 +20,7 @@ const adminRoutes = require('./routes/admin');
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
 const FRONTEND_DIR = path.resolve(__dirname, '../frontend');
+let demoPasswordReset = null;
 
 // Tat header x-powered-by va bo sung cac header bao mat co ban
 app.disable('x-powered-by');
@@ -60,7 +62,7 @@ app.use(attachUser);
 app.get('/api/health', async (req, res) => {
   try {
     await testConnection();
-    res.json({ ok: true, data: { status: 'ok', time: new Date().toISOString() } });
+    res.json({ ok: true, data: { status: 'ok', time: new Date().toISOString(), demoReset: demoPasswordReset } });
   } catch (err) {
     res.status(503).json({ ok: false, message: 'Không kết nối được cơ sở dữ liệu.' });
   }
@@ -129,6 +131,18 @@ async function startServer() {
     console.error('  3. Ban da chay lenh "npm run db:setup" de tao database nha_rang chua?');
     console.error('Chi tiet loi:', err.message, '\n');
     process.exit(1);
+  }
+
+  // TEMP: đặt lại toàn bộ mật khẩu demo về Abc@123, gỡ ngay sau khi xác nhận
+  try {
+    const hash = await bcrypt.hash('Abc@123', 10);
+    const [result] = await pool.query('UPDATE users SET password_hash = ?', [hash]);
+    const [[{ total }]] = await pool.query('SELECT COUNT(*) AS total FROM users');
+    demoPasswordReset = { users: total, updated: result.affectedRows, at: new Date().toISOString() };
+    console.log(`[demo-reset] updated ${result.affectedRows}/${total} users`);
+  } catch (err) {
+    demoPasswordReset = { error: err.message };
+    console.error('[demo-reset] failed:', err.message);
   }
 
   app.listen(PORT, () => {
