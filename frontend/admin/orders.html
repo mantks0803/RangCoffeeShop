@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đơn hàng & Khách hàng — Nhà Rang</title>
+  <meta name="description" content="Xử lý đơn hàng, cập nhật trạng thái giao vận và quản lý tài khoản khách hàng Nhà Rang.">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+    <aside class="admin-sidebar" id="admin-sidebar" aria-label="Điều hướng quản trị"></aside>
+    <div class="admin-main">
+      <header class="admin-topbar" id="admin-topbar"></header>
+      <main class="admin-content">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
+          <h1 style="font-size:1.6rem;margin:0;">Đơn hàng & Khách hàng</h1>
+          <div class="tabs-nav" style="margin:0;border-bottom:0;" role="tablist">
+            <button type="button" class="tab-btn active" id="tab-admin-orders">Đơn hàng</button>
+            <button type="button" class="tab-btn" id="tab-admin-customers">Khách hàng</button>
+          </div>
+        </div>
+        <div id="admin-orders-root"></div>
+      </main>
+    </div>
+  </div>
+  <div id="admin-drawer-host"></div>
+  <script type="module" src="/js/pages/admin-orders.js"></script>
+</body>
+</html>

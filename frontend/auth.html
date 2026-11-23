@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập & Đăng ký — Nhà Rang</title>
+  <meta name="description" content="Đăng nhập hoặc tạo tài khoản khách hàng Nhà Rang để đặt hàng, tích điểm và theo dõi đơn.">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+    <div class="auth-wrap">
+      <div class="panel">
+        <div class="tabs-nav" style="margin-top:0;margin-bottom:var(--s5);" role="tablist">
+          <button type="button" class="tab-btn active" id="tab-login" role="tab" aria-selected="true">Đăng nhập</button>
+          <button type="button" class="tab-btn" id="tab-register" role="tab" aria-selected="false">Đăng ký tài khoản</button>
+        </div>
+
+        <h1 id="auth-heading" style="font-size:1.65rem;margin-bottom:var(--s4);">Đăng nhập Nhà Rang</h1>
+
+        <form id="login-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email</label>
+            <input class="form-control" id="login-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="login-password">Mật khẩu</label>
+            <div style="position:relative;">
+              <input class="form-control" id="login-password" name="password" type="password" autocomplete="current-password" required style="padding-right:64px;">
+              <button type="button" class="btn btn-ghost btn-sm" id="toggle-login-pw" style="position:absolute;right:4px;top:4px;min-height:36px;">Hiện</button>
+            </div>
+          </div>
+          <div id="login-error" class="field-error hidden" style="margin-bottom:12px;"></div>
+          <button type="submit" class="btn btn-primary btn-block" id="login-submit">Đăng nhập</button>
+        </form>
+
+        <form id="register-form" class="hidden" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Họ và tên</label>
+            <input class="form-control" id="reg-name" name="fullName" type="text" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email</label>
+            <input class="form-control" id="reg-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-phone">Số điện thoại (tùy chọn)</label>
+            <input class="form-control" id="reg-phone" name="phone" type="tel" placeholder="0901234567">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Mật khẩu</label>
+            <input class="form-control" id="reg-password" name="password" type="password" autocomplete="new-password" required>
+            <p class="form-hint">Tối thiểu 8 ký tự, gồm cả chữ cái và chữ số.</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-confirm">Nhập lại mật khẩu</label>
+            <input class="form-control" id="reg-confirm" name="confirmPassword" type="password" autocomplete="new-password" required>
+          </div>
+          <div id="register-error" class="field-error hidden" style="margin-bottom:12px;"></div>
+          <button type="submit" class="btn btn-primary btn-block" id="register-submit">Tạo tài khoản</button>
+        </form>
+      </div>
+
+      <details id="demo-accounts-box" class="panel hidden" style="margin-top:var(--s4);padding:var(--s4);">
+        <summary style="cursor:pointer;font-weight:600;">Tài khoản dùng thử (môi trường phát triển)</summary>
+        <p class="form-hint" style="margin-top:8px;">Bấm nút để điền nhanh email và mật khẩu vào khung đăng nhập.</p>
+        <div id="demo-accounts-list" style="display:grid;gap:8px;margin-top:12px;"></div>
+      </details>
+    </div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script type="module" src="/js/pages/auth.js"></script>
+</body>
+</html>

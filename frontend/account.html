@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tài khoản của tôi — Nhà Rang</title>
+  <meta name="description" content="Quản lý hồ sơ cá nhân, sổ địa chỉ, lịch sử đơn hàng và bảo mật tài khoản Nhà Rang.">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+    <div style="padding-top: var(--s5);">
+      <p class="mono-label">KHÁCH HÀNG</p>
+      <h1 style="font-size: clamp(1.7rem, 3vw, 2.3rem);">Tài khoản của tôi</h1>
+    </div>
+    <div class="account-layout">
+      <nav class="account-nav" id="account-nav" aria-label="Mục tài khoản">
+        <a href="#profile" data-tab="profile">Hồ sơ cá nhân</a>
+        <a href="#orders" data-tab="orders">Đơn hàng của tôi</a>
+        <a href="#addresses" data-tab="addresses">Sổ địa chỉ</a>
+        <a href="#security" data-tab="security">Đổi mật khẩu</a>
+      </nav>
+      <section id="account-content"></section>
+    </div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script type="module" src="/js/pages/account.js"></script>
+</body>
+</html>

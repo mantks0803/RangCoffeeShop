@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750" fill="none">
+  <rect width="600" height="750" fill="#EFE7DA"/>
+  <rect x="48" y="48" width="504" height="654" rx="6" stroke="#D5C6B2" stroke-width="2" stroke-dasharray="6 6"/>
+  <ellipse cx="300" cy="340" rx="56" ry="76" stroke="#8C7866" stroke-width="3"/>
+  <path d="M300 266C284 306 316 374 300 414" stroke="#8C7866" stroke-width="3" stroke-linecap="round"/>
+  <text x="300" y="468" text-anchor="middle" fill="#6B5B4E" font-family="Be Vietnam Pro, sans-serif" font-size="20">NHÀ RANG · ẢNH ĐANG CẬP NHẬT</text>
+</svg>

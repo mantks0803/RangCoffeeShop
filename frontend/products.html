@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cửa hàng — Nhà Rang</title>
+  <meta name="description" content="Khám phá cà phê đặc sản Việt Nam, drip bag, dụng cụ pha chế và cốc gốm thủ công tại Nhà Rang.">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+    <div style="padding-top: var(--s5);">
+      <p class="mono-label">CỬA HÀNG NHÀ RANG</p>
+      <h1 id="shop-heading" style="font-size: clamp(1.7rem, 3vw, 2.3rem);">Tất cả sản phẩm</h1>
+    </div>
+
+    <div class="shop-layout">
+      <aside class="filter-sidebar" id="filter-sidebar" aria-label="Bộ lọc sản phẩm">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <strong style="font-size:1rem;">Bộ lọc</strong>
+          <button type="button" class="btn btn-ghost btn-sm mobile-filter-btn" id="close-filter-btn">Đóng</button>
+        </div>
+
+        <div class="filter-group">
+          <h3>Tìm kiếm</h3>
+          <input type="search" id="filter-q" class="form-control" placeholder="Tên hạt, nốt hương, dụng cụ...">
+        </div>
+
+        <div class="filter-group">
+          <h3>Danh mục</h3>
+          <div id="filter-categories" class="filter-list"></div>
+        </div>
+
+        <div class="filter-group" id="filter-roast-group">
+          <h3>Mức rang</h3>
+          <div class="filter-list">
+            <label class="filter-option"><input type="radio" name="roast" value=""> Tất cả mức rang</label>
+            <label class="filter-option"><input type="radio" name="roast" value="light"> Rang nhạt</label>
+            <label class="filter-option"><input type="radio" name="roast" value="medium"> Rang vừa</label>
+            <label class="filter-option"><input type="radio" name="roast" value="dark"> Rang đậm</label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h3>Vùng trồng</h3>
+          <select id="filter-origin" class="form-control">
+            <option value="">Tất cả vùng trồng</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <h3>Khoảng giá (₫)</h3>
+          <div class="filter-list" style="margin-bottom:10px;">
+            <label class="filter-option"><input type="radio" name="pricePreset" value=""> Mọi mức giá</label>
+            <label class="filter-option"><input type="radio" name="pricePreset" value="0-150000"> Dưới 150.000 ₫</label>
+            <label class="filter-option"><input type="radio" name="pricePreset" value="150000-300000"> 150.000 – 300.000 ₫</label>
+            <label class="filter-option"><input type="radio" name="pricePreset" value="300000-600000"> 300.000 – 600.000 ₫</label>
+            <label class="filter-option"><input type="radio" name="pricePreset" value="600000-"> Trên 600.000 ₫</label>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <input type="number" id="filter-min-price" class="form-control" placeholder="Tối thiểu" min="0" step="10000">
+            <input type="number" id="filter-max-price" class="form-control" placeholder="Tối đa" min="0" step="10000">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-option">
+            <input type="checkbox" id="filter-instock"> Chỉ hiện sản phẩm còn hàng
+          </label>
+        </div>
+
+        <div style="display:grid;gap:8px;">
+          <button type="button" class="btn btn-primary btn-sm btn-block" id="apply-filter-btn">Áp dụng bộ lọc</button>
+          <button type="button" class="btn btn-ghost btn-sm btn-block" id="clear-filter-btn">Xóa bộ lọc</button>
+        </div>
+      </aside>
+
+      <section aria-label="Danh sách sản phẩm">
+        <div class="shop-toolbar">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <button type="button" class="btn btn-secondary btn-sm mobile-filter-btn" id="open-filter-btn">Bộ lọc</button>
+            <span id="shop-count" class="text-soft">Đang tải...</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <label for="shop-sort" class="text-soft" style="font-size:0.9rem;">Sắp xếp:</label>
+            <select id="shop-sort" class="form-control" style="width:auto;min-height:40px;">
+              <option value="newest">Mới nhất</option>
+              <option value="bestseller">Bán chạy</option>
+              <option value="rating">Đánh giá cao</option>
+              <option value="price_asc">Giá tăng dần</option>
+              <option value="price_desc">Giá giảm dần</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="shop-grid" class="product-grid"></div>
+        <div id="shop-pagination"></div>
+      </section>
+    </div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script type="module" src="/js/pages/products.js"></script>
+</body>
+</html>

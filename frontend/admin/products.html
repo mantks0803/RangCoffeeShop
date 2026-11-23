@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý sản phẩm — Nhà Rang</title>
+  <meta name="description" content="Quản lý danh mục, sản phẩm, biến thể và tồn kho của cửa hàng Nhà Rang.">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+    <aside class="admin-sidebar" id="admin-sidebar" aria-label="Điều hướng quản trị"></aside>
+    <div class="admin-main">
+      <header class="admin-topbar" id="admin-topbar"></header>
+      <main class="admin-content">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
+          <h1 style="font-size:1.6rem;margin:0;">Sản phẩm & Danh mục</h1>
+          <div style="display:flex;gap:8px;" id="admin-products-actions"></div>
+        </div>
+        <div id="admin-products-root"></div>
+      </main>
+    </div>
+  </div>
+  <div id="admin-drawer-host"></div>
+  <script type="module" src="/js/pages/admin-products.js"></script>
+</body>
+</html>
